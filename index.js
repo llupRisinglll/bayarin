@@ -7,13 +7,18 @@ require('dotenv').config()
 
 
 app.get('/', (req, res) => {
-
-	const Cat = mongoose.model('Cat', {
+	const Calendar = mongoose.model('BayarinCalendar', {
 		name: String 
 	});
 
-	const kitty = new Cat({ name: 'Zildjian' });
-	kitty.save().then(() => console.log('meow'));
+	const calendar_entry = new Calendar({ 
+		title: 'Zildjian',
+		date: '2019-01-01',
+		amount: 1000,
+		notes: 'test' 
+	});
+
+	calendar_entry.save().then(() => console.log('meow'));
 
 	res.send('Hello World!')
 })
